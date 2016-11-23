@@ -1,0 +1,26 @@
+{
+  "name": "play-torrent",
+  "version": "0.1.0",
+  "description": "Video app to reproduce torrent files",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "test"
+  },
+  "keywords": [
+    "torrent",
+    "video",
+    "play"
+  ],
+  "author": "mariano.moretti",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "electron": "^1.4.1",
+    "extratorrent-api": "^1.0.8",
+    "lodash": "^4.17.2"
+  },
+  "devDependencies": {
+    "electron-reload": "^1.0.3"
+  }
+}
