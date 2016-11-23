@@ -7,15 +7,17 @@ const et = new ExtraTorrentAPI();
 
 var app = angular.module('play-torrent', []);
 
-app.controller('TorrentCtrl', function ($q) {
+app.controller('TorrentCtrl', function ($rootScope) {
   var torrentCtrl = this;
   torrentCtrl.term = "";
   torrentCtrl.list = [];
 
-  torrentCtrl.search = function () {
-    et.search(torrentCtrl.term)
+  torrentCtrl.search = function (term) {
+
+    et.search(term)
       .then(function (response) {
         torrentCtrl.list = response.results;
+        $rootScope.$digest();
       })
       .catch(console.log);
   }
