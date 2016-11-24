@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Play torrent!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="node_modules/angular/angular.min.js"></script>
   </head>
   <body>
@@ -10,15 +11,14 @@
       <h1>Search a torrent!</h1>
       <input id="search-input" type="text" name="search" ng-model="torrentCtrl.term">
       <button id="search-button" ng-click="torrentCtrl.search(torrentCtrl.term)">click me</button>
-      <ul id="torrent-list">
+      <ul>
         <li ng-repeat="torrent in torrentCtrl.list">
-          <p>{{ torrent.title }}</p>
+          <a href="#" ng-click="torrentCtrl.loadTorrent(torrent.torrent_link)">{{ torrent.title }}</a>
         </li>
       </ul>
     </div>
 
     <script>
-      // You can also require other files to run in this process
       require('./renderer.js')
     </script>
   </body>

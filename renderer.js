@@ -3,22 +3,31 @@
 // All of the Node.js APIs are available in this process.
 
 const ExtraTorrentAPI = require('extratorrent-api');
+const peerflix = require('peerflix');
+const parseTorrent = require('parse-torrent');
 const et = new ExtraTorrentAPI();
+const request = require('request')
 
 var app = angular.module('play-torrent', []);
-
 app.controller('TorrentCtrl', function ($rootScope) {
-  var torrentCtrl = this;
+  let torrentCtrl = this;
   torrentCtrl.term = "";
   torrentCtrl.list = [];
 
-  torrentCtrl.search = function (term) {
-
-    et.search(term)
-      .then(function (response) {
+  torrentCtrl.search = () => {
+    et.search(torrentCtrl.term)
+      .then((response) => {
         torrentCtrl.list = response.results;
         $rootScope.$digest();
       })
       .catch(console.log);
+  }
+
+  torrentCtrl.loadTorrent = (path) => {
+    parseTorrent.remote(path, (err, parsedTorrent) => {
+      if (err) throw err
+      // const uri = parseTorrent.toMagnetURI(parsedTorrent.infoHash);
+      peerflix(parsedTorrent.infoHash);
+    })
   }
 });
