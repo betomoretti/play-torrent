@@ -9,8 +9,9 @@
   <body>
     <div ng-controller="TorrentCtrl as torrentCtrl">
       <h1>Search a torrent!</h1>
-      <input id="search-input" type="text" name="search" ng-model="torrentCtrl.term">
-      <button id="search-button" ng-click="torrentCtrl.search(torrentCtrl.term)">click me</button>
+      <input type="text" name="search" ng-model="torrentCtrl.term">
+      <button ng-click="torrentCtrl.search()">click me</button>
+      <button ng-click="torrentCtrl.closeTorrent()">stop!</button>
       <ul>
         <li ng-repeat="torrent in torrentCtrl.list">
           <a href="#" ng-click="torrentCtrl.loadTorrent(torrent.torrent_link)">{{ torrent.title }}</a>
