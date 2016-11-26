@@ -32,11 +32,10 @@ app.controller('TorrentCtrl', function ($rootScope) {
       };
       torrentEngine = peerflix(parsedTorrent.infoHash, opts);
 
-      torrentEngine.server.on('listening', () =>
-        proc.exec(`vlc http://${opts.hostname}:${opts.port}`)
-      );
+      torrentEngine.server.on('listening', () => {
+        let vlc = proc.exec(`vlc http://${opts.hostname}:${opts.port}`)
+        vlc.on('exit', () => torrentEngine.server.close())
+      });
     })
   }
-
-  torrentCtrl.closeTorrent = () => torrentEngine.server.close()
 });
