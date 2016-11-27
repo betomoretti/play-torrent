@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="play-torrent">
+  <head>
+    <meta charset="UTF-8">
+    <title>Play torrent!</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="bower_components/angular/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="TorrentCtrl as torrentCtrl">
+      
+      <div class="container">
+        <h1>Search a torrent!</h1>
+        <input type="text" name="search" ng-model="torrentCtrl.term">
+        <button ng-click="torrentCtrl.search()">click me</button>
+        <button ng-click="torrentCtrl.closeTorrent()">stop!</button>
+      </div>
+      
+      <ul>
+        <li ng-repeat="torrent in torrentCtrl.list">
+          <a href="#" ng-click="torrentCtrl.loadTorrent(torrent.torrent_link)">{{ torrent.title }}</a>
+        </li>
+      </ul>
+
+    </div>
+
+    <script>
+      require('./scripts/app.js')
+    </script>
+  </body>
+
+</html>

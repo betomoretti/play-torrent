@@ -1,0 +1,25 @@
+{
+  "name": "play-torrent",
+  "description": "Video app to reproduce torrent files",
+  "main": "main.js",
+  "authors": [
+    "mariano.moretti"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "torrent",
+    "video",
+    "play"
+  ],
+  "homepage": "https://github.com/betomoretti/play-torrent",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.1"
+  }
+}

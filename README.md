@@ -8,4 +8,6 @@ Run:
 
 2. ```npm install```
 
-3. ```npm start```
+3. ```bower install```
+
+4. ```npm start```

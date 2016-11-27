@@ -15,7 +15,6 @@
   "author": "mariano.moretti",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.5.8",
     "electron": "^1.4.1",
     "extratorrent-api": "^1.0.8",
     "lodash": "^4.17.2",
@@ -23,6 +22,7 @@
     "peerflix": "^0.36.1"
   },
   "devDependencies": {
-    "electron-reload": "^1.0.3"
+    "electron-reload": "^1.0.3",
+    "bower": "^1.8.0"
   }
 }

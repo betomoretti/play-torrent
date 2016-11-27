@@ -17,6 +17,7 @@ app.controller('TorrentCtrl', function ($rootScope) {
   torrentCtrl.search = () => {
     et.search(torrentCtrl.term)
       .then((response) => {
+        console.log(response)
         torrentCtrl.list = response.results;
         $rootScope.$digest();
       })
@@ -32,7 +33,7 @@ app.controller('TorrentCtrl', function ($rootScope) {
       };
       torrentEngine = peerflix(parsedTorrent.infoHash, opts);
 
-      torrentEngine.server.on('listening', () =>
+      torrentEngine.on('ready', () =>
         proc.exec(`vlc http://${opts.hostname}:${opts.port}`)
       );
     })
