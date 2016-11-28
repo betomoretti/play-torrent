@@ -19,8 +19,11 @@
     "electron": "^1.4.1",
     "extratorrent-api": "^1.0.8",
     "lodash": "^4.17.2",
+    "numeral": "^1.5.6",
     "parse-torrent": "^5.8.1",
-    "peerflix": "^0.36.1"
+    "peerflix": "^0.36.1",
+    "request": "^2.79.0",
+    "subxfinder": "^1.0.1"
   },
   "devDependencies": {
     "electron-reload": "^1.0.3"

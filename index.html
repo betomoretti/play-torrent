@@ -11,9 +11,11 @@
       <h1>Search a torrent!</h1>
       <input type="text" name="search" ng-model="torrentCtrl.term">
       <button ng-click="torrentCtrl.search()">click me</button>
+      <p>Downloaded: {{ downloaded }}</p>
+      <p>Speed: {{ speed }}</p>
       <ul>
         <li ng-repeat="torrent in torrentCtrl.list">
-          <a href="#" ng-click="torrentCtrl.loadTorrent(torrent.torrent_link)">{{ torrent.title }}</a>
+          <p><a href="#" ng-click="torrentCtrl.loadTorrent(torrent.torrent_link)">{{ torrent.title }}</a>, quality: {{ torrent.quality }}, seeds: {{ torrent.seeds }}, leechers: {{ torrent.leechers }}</p>
         </li>
       </ul>
     </div>
